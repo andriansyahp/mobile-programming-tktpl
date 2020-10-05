@@ -1,12 +1,8 @@
 <resources>
-    <string name="app_name">Hello World</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Hello…</string>
-    <string name="previous">Okay</string>
-
-    <string name="hello_first_fragment">Click the "Hello" button, will you?</string>
-    <string name="hello_second_fragment">Thanks. Have a good day! :)</string>
+    <string name="app_name">SimpMusic</string>
+    <string name="title">SimpMusic</string>
+    <string name="subtitle">Simple music player that can run in background</string>
+    <string name="stop">stop</string>
+    <string name="play">play</string>
+    <string name="pause">pause</string>
 </resources>
