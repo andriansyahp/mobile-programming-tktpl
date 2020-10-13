@@ -9,11 +9,11 @@ import io.reactivex.schedulers.Schedulers;
 import androidx.multidex.MultiDexApplication;
 
 public class PokedexApplication extends MultiDexApplication {
-    private PokemonApiService peopleService;
+    private PokemonApiService pokemonApiService;
     private Scheduler scheduler;
 
     private static PokedexApplication get(Context context) {
-        return PokedexApplication.get(context.getApplicationContext());
+        return (PokedexApplication) context.getApplicationContext();
     }
 
     public static PokedexApplication create(Context context) {
@@ -21,11 +21,11 @@ public class PokedexApplication extends MultiDexApplication {
     }
 
     public PokemonApiService getPokemonService() {
-        if (peopleService == null) {
-            peopleService = PokemonFactory.create();
+        if (pokemonApiService == null) {
+            pokemonApiService = PokemonFactory.create();
         }
 
-        return peopleService;
+        return pokemonApiService;
     }
 
     public Scheduler subscribeScheduler() {

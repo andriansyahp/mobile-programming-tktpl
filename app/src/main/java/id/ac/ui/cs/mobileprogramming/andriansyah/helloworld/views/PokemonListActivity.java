@@ -14,27 +14,28 @@ import java.util.Observable;
 import java.util.Observer;
 
 import id.ac.ui.cs.mobileprogramming.andriansyah.helloworld.R;
+import id.ac.ui.cs.mobileprogramming.andriansyah.helloworld.databinding.PokemonListActivityBinding;
 import id.ac.ui.cs.mobileprogramming.andriansyah.helloworld.models.Pokemon;
 import id.ac.ui.cs.mobileprogramming.andriansyah.helloworld.viewmodels.PokemonListViewModel;
 
 public class PokemonListActivity extends AppCompatActivity implements Observer {
     private PokemonListViewModel pokemonListViewModel;
 
-//    private PokemonActivityBinding binding;
+    private PokemonListActivityBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initDataBinding();
-//        setSupportActionBar(binding.toolbar);
-//        setupListPokemonView(binding.recyclerPeople);
+        setSupportActionBar(binding.toolbar);
+        setupListPokemonView(binding.recyclerPokemon);
         setupObserver(pokemonListViewModel);
     }
 
     private void initDataBinding() {
-//        binding = DataBindingUtil.setContentView(this, R.layout.pokemon_list_activity);
+        binding = DataBindingUtil.setContentView(this, R.layout.pokemon_list_activity);
         pokemonListViewModel = new PokemonListViewModel(this);
-//        binding.setMainViewModel(pokemonListViewModel);
+        binding.setMainViewModel(pokemonListViewModel);
     }
 
     private void setupListPokemonView(RecyclerView recyclerPokemon) {
@@ -55,12 +56,12 @@ public class PokemonListActivity extends AppCompatActivity implements Observer {
 
     @Override
     public void update(Observable observable, Object data) {
-//        if (observable instanceof PokemonListViewModel) {
-//            PokemonAdapter pokemonAdapter = (PokemonAdapter) binding.recyclerPokemon.getAdapter();
-//            if (pokemonAdapter != null) {
-//                PokemonListViewModel pokemonListViewModel = (PokemonListViewModel) observable;
-//                pokemonAdapter.setPokemonList(pokemonListViewModel.getPokemonList());
-//            }
-//        }
+        if (observable instanceof PokemonListViewModel) {
+            PokemonAdapter pokemonAdapter = (PokemonAdapter) binding.recyclerPokemon.getAdapter();
+            if (pokemonAdapter != null) {
+                PokemonListViewModel pokemonListViewModel = (PokemonListViewModel) observable;
+                pokemonAdapter.setPokemonList(pokemonListViewModel.getPokemonList());
+            }
+        }
     }
 }

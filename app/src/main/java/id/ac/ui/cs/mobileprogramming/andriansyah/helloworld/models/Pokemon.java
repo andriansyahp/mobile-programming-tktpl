@@ -6,6 +6,16 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Pokemon implements Serializable {
+    public Pokemon(List<Ability> abilities, int baseExp, int height, String name, Sprite sprites,
+                   List<Stat> stat, int weight){
+        this.abilities = abilities;
+        this.baseExp = baseExp;
+        this.height = height;
+        this.name = name;
+        this.sprites = sprites;
+        this.stat = stat;
+        this.weight = weight;
+    }
     @SerializedName("abilities")
     private List<Ability> abilities;
 
@@ -26,6 +36,8 @@ public class Pokemon implements Serializable {
 
     @SerializedName("weight")
     private int weight;
+
+
 
     public List<Ability> getAbilities() {
         return abilities;

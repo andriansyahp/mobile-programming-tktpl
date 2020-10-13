@@ -62,13 +62,13 @@ public class PokemonListViewModel extends Observable {
         PokedexApplication pokedexApplication = PokedexApplication.create(context);
         PokemonApiService pokemonApiService = pokedexApplication.getPokemonService();
 
-        Disposable disposable = pokemonApiService.fetchPokemonList(PokemonFactory.BASE_URL)
+        Disposable disposable = pokemonApiService.fetchPokemonList("200")
                 .subscribeOn(pokedexApplication.subscribeScheduler())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<PokemonListApiResponse>() {
                     @Override
                     public void accept(PokemonListApiResponse pokemonListApiResponse) {
-                        changePeopleDataSet(pokemonListApiResponse.getPokemonsList());
+                        changePokemonsDataSet(pokemonListApiResponse.getPokemonsList());
                         pokemonListProgress.set(View.GONE);
                         pokemonLabel.set(View.GONE);
                         pokemonListRecycler.set(View.VISIBLE);
@@ -87,8 +87,8 @@ public class PokemonListViewModel extends Observable {
         compositeDisposable.add(disposable);
     }
 
-    private void changePeopleDataSet(List<Pokemons> peoples) {
-        pokemonList.addAll(peoples);
+    private void changePokemonsDataSet(List<Pokemons> pokemons) {
+        pokemonList.addAll(pokemons);
         setChanged();
         notifyObservers();
     }
