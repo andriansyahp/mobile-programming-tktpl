@@ -1,33 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="#FFC107"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
-
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="59dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/title_text"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#FF9800"
+        android:textColorHighlight="#FFC107"
+        android:textColorHint="#FFEB3B"
+        android:textColorLink="#FF5722"
+        app:fontFamily="casual"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        tools:ignore="MissingConstraints" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+    <RadioGroup
+
+        android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/instruction"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        tools:ignore="MissingConstraints">
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <RadioButton
+            android:id="@+id/celcius"
+            style="@style/Widget.AppCompat.CompoundButton.RadioButton"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:button="@android:drawable/btn_radio"
+            android:checked="true"
+            android:text="@string/celcius"
+            android:textColor="@android:color/background_light"
+            android:textColorHighlight="@android:color/holo_orange_light"
+            android:textColorHint="@android:color/holo_orange_dark"
+            android:textColorLink="#FFFFFF"
+            android:textCursorDrawable="@android:color/holo_orange_dark"
+            android:textSize="14sp" />
+
+        <Space
+            android:layout_width="33dp"
+            android:layout_height="50dp"
+            android:layout_gravity="fill" />
+
+
+        <RadioButton
+            android:id="@+id/fahrenheit"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:button="@android:drawable/btn_radio"
+            android:text="@string/fahrenheit"
+            android:textColor="@android:color/background_light"
+            android:textSize="14sp" />
+
+        <Space
+            android:layout_width="31dp"
+            android:layout_height="50dp"
+            android:layout_gravity="fill" />
+
+
+        <RadioButton
+            android:id="@+id/reamur"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:button="@android:drawable/btn_radio"
+            android:text="@string/reamur"
+            android:textColor="@android:color/background_light"
+            android:textSize="14sp" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/instruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/instruction"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toTopOf="@+id/result_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <EditText
+        android:id="@+id/temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/result_header"
+        app:layout_constraintEnd_toEndOf="@+id/instruction"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/instruction"
+        app:layout_constraintVertical_bias="0.509"
+        tools:ignore="LabelFor" />
+
+    <Button
+        android:id="@+id/convert_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFC107"
+        android:text="@string/convert_btn"
+        app:layout_constraintBottom_toTopOf="@+id/result_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/temperature"
+        app:layout_constraintTop_toBottomOf="@+id/instruction" />
+
+    <TextView
+        android:id="@+id/result_header"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_marginBottom="131dp"
+        android:text="@string/result_header"
+        android:textColor="#FF9800"
+        android:textColorHighlight="#FFEB3B"
+        android:textColorHint="#FF9800"
+        android:textColorLink="#FF5722"
+        app:fontFamily="casual"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/result_celsius"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/celcius"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintEnd_toStartOf="@+id/result_header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/result_header" />
+
+    <TextView
+        android:id="@+id/celcius_conv_val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/celsius_conv_val"
+        android:textColor="#FFC107"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/result_header"
+        app:layout_constraintTop_toBottomOf="@+id/result_header" />
+
+    <TextView
+        android:id="@+id/result_fahrenheit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fahrenheit"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintEnd_toStartOf="@+id/result_header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/result_celsius" />
+
+    <TextView
+        android:id="@+id/fahrenheit_conv_val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fahrenheit_conv_val"
+        android:textColor="#FFC107"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/result_header"
+        app:layout_constraintTop_toBottomOf="@+id/celcius_conv_val" />
+
+    <TextView
+        android:id="@+id/result_reamur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reamur"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/result_header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/result_fahrenheit" />
+
+    <TextView
+        android:id="@+id/reamur_conv_val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reamur_conv_val"
+        android:textColor="#FFC107"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/result_header"
+        app:layout_constraintTop_toBottomOf="@+id/fahrenheit_conv_val" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

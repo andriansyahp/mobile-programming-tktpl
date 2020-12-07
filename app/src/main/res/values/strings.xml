@@ -1,12 +1,13 @@
 <resources>
-    <string name="app_name">Hello World</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Hello…</string>
-    <string name="previous">Okay</string>
-
-    <string name="hello_first_fragment">Click the "Hello" button, will you?</string>
-    <string name="hello_second_fragment">Thanks. Have a good day! :)</string>
+    <string name="app_name">ConverTemp</string>
+    <string name="instruction">Convert your temperature</string>
+    <string name="title_text">Temperature Converter</string>
+    <string name="celcius">Celcius</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="reamur">Reamur</string>
+    <string name="result_header">Result</string>
+    <string name="convert_btn">Convert</string>
+    <string name="celsius_conv_val" />
+    <string name="fahrenheit_conv_val" />
+    <string name="reamur_conv_val" />
 </resources>
