@@ -1,12 +1,8 @@
 <resources>
-    <string name="app_name">Hello World</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Hello…</string>
-    <string name="previous">Okay</string>
+    <string name="app_name">Press Count (Native)</string>
 
-    <string name="hello_first_fragment">Click the "Hello" button, will you?</string>
-    <string name="hello_second_fragment">Thanks. Have a good day! :)</string>
+    <string name="title">Press Count (Native - Lab 7)</string>
+    <string name="txtCount">0</string>
+    <string name="txtSubtitle">You have pushed the button this many times:</string>
+    <string name="btnPress">Press Me!</string>
 </resources>
